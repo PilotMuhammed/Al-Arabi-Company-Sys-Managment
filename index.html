@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>واجهة اختيار مواصفات الحاسبة</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>
+            نظام تحديد مواصفات الاجهزة
+        </h1>
+    </header>
+    
+    <main class="container">
+        <!-- القسم الأيسر: القوائم المنسدلة والاختيارات -->
+        <section class="specs-form">
+            <form id="laptopForm" autocomplete="off">
+                <div class="form-group">
+                    <label for="laptopName">اسم و موديل الجهاز</label>
+                    <input type="text" id="laptopName" name="laptopName" placeholder="مثال: EliteBook 850 G8 - SN12345678">
+                </div>
+
+                <div class="form-group">
+                    <label for="brand">الشركة المصنعة</label>
+                    <select id="brand" name="brand">
+                        <option value="">اختر الشركة</option>
+                        <option value="hp">HP</option>
+                        <option value="dell">Dell</option>
+                        <option value="lenovo">Lenovo</option>
+                    </select>
+                </div>
+
+
+            <!-- Start Code Check box => type Process -->
+                        <div class="form-group" id="cpuBrandGroup">
+                <label>نوع المعالج</label>
+                <div style="display: flex; gap: 1.5rem;">
+                    <input type="checkbox" id="intelCheckbox" name="cpuBrand" value="intel">
+                    <label for="intelCheckbox">Intel</label>
+                    <input type="checkbox" id="amdCheckbox" name="cpuBrand" value="amd">
+                    <label for="amdCheckbox">AMD</label>
+                </div>
+
+                <!-- قوائم Intel -->
+                <select id="intelCpuList" style="display: none; margin-top: 8px;">
+                    <option value="">اختر معالج Intel</option>
+                    <option value="Corei3">Core i3</option>
+                    <option value="Corei5">Core i5</option>
+                    <option value="Corei7">Core i7</option>
+                    <option value="Corei9">Core i9</option>
+                </select>
+                <select id="intelGenList" style="display: none; margin-top: 8px;">
+                    <option value="">اختر الجيل</option>
+                    <option value="8th">8th Gen</option>
+                    <option value="9th">9th Gen</option>
+                    <option value="10th">10th Gen</option>
+                    <option value="11th">11th Gen</option>
+                    <option value="12th">12th Gen</option>
+                </select>
+
+                <!-- قوائم AMD -->
+                <select id="amdCpuList" style="display: none; margin-top: 8px;">
+                    <option value="">اختر معالج AMD</option>
+                    <option value="Ryzen3">Ryzen 3</option>
+                    <option value="Ryzen5">Ryzen 5</option>
+                    <option value="Ryzen7">Ryzen 7</option>
+                    <option value="Ryzen9">Ryzen 9</option>
+                </select>
+                
+                <select id="amdGenList" style="display: none; margin-top: 8px;">
+                    <option value="">اختر الجيل</option>
+                    <option value="2000">2000 Series</option>
+                    <option value="3000">3000 Series</option>
+                    <option value="5000">5000 Series</option>
+                    <option value="7000">7000 Series</option>
+                </select>
+            </div>
+
+<!-- End Code Check box => type Process -->
+
+
+                <div class="form-group">
+                    <label for="os">نوع النظام</label>
+                    <select id="os" name="os">
+                        <option value="">اختر النظام</option>
+                        <option value="win10"> Windows 10 </option>
+                        <option value="win11"> Windows 11 </option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="storage">نوع الهارد</label>
+                    <select id="storage" name="storage">
+                        <option value="">اختر نوع الهارد</option>
+                        <option value="ssd_128">SSD-128 GB</option>
+                        <option value="ssd_256">SSD-256 GB</option>
+                        <option value="ssd_512">SSD-512 GB</option>
+                        <option value="ssd_1T">SSD-1T</option>
+                        <option value="nvme_128">NVME-128 GB</option>
+                        <option value="nvme_256">NVME-256 GB</option>
+                        <option value="nvme_512">NVME-512 GB</option>
+                        <option value="nvme_1T">NVME-1T</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="ram">نوع الرام</label>
+                    <select id="ram" name="ram">
+                        <option value="">اختر نوع الرام</option>
+                        <option value="GB_8">8 GB</option>
+                        <option value="GB_16">16 GB</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="screen">حجم الشاشة</label>
+                    <select id="screen" name="screen">
+                        <option value="">اختر الحجم</option>
+                        <option value="13">13 inch</option>
+                        <option value="14">14 inch </option>
+                        <option value="14.5">14.5 inch</option>
+                        <option value="15">15 inch</option>
+                        <option value="15.5">15.5 inch</option>
+                        <option value="16">16 inch</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="hz">تردد الشاشة (Hz)</label>
+                    <select id="hz" name="hz">
+                        <option value="">اختر التردد</option>
+                        <option value="60">60 Hz</option>
+                        <option value="120">120 Hz</option>
+                        <option value="144">144 Hz</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="gpu">نوع كرت الشاشة</label>
+                    <select id="gpu" name="gpu">
+                        <option value="">اختر الكرت</option>
+                        <option value="intel_irisXe"> intel_irisXe </option>
+                        <option value="nvidia">Nvidia</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="price">السعر</label>
+                    <input type="number" id="price" name="price" placeholder="ادخل السعر" min="0">
+                </div>
+                <div class="form-group checkbox-group">
+                    <input type="checkbox" id="touch" name="touch">
+                    <label for="touch">شاشة لمس</label>
+                </div>
+
+                <div class="form-buttons">
+                    <button type="button" id="resetBtn">إعادة تعيين</button>
+                    <button type="button" id="printBtn">طباعة المواصفات</button>
+                </div>
+            </form>
+        </section>
+        
+        <!-- القسم الأيمن: عرض بطاقة المواصفات للعرض والطباعة -->
+        <section class="preview-area">
+            <div class="specs-card" id="specsCard">
+                <!-- يتم ملء البيانات والصور هنا من خلال JS -->
+            </div>
+        </section>
+    </main>
+    <script src="./main.js"></script>
+</body>
+</html>
