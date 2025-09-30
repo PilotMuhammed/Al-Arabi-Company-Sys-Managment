@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>واجهة اختيار مواصفات الحاسبة</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -18,20 +19,32 @@
         <section class="specs-form">
             <form id="laptopForm" autocomplete="off">
                 <div class="form-group">
-                    <label for="laptopName">اسم و موديل الجهاز</label>
-                    <input type="text" id="laptopName" name="laptopName" placeholder="مثال: EliteBook 850 G8">
-                </div>
-
-                <div class="form-group">
                     <label for="brand">الشركة المصنعة</label>
                     <select id="brand" name="brand">
                         <option value="">اختر الشركة</option>
                         <option value="hp">HP</option>
                         <option value="dell">Dell</option>
                         <option value="lenovo">Lenovo</option>
+                        <option value="acer">Acer</option>
+                        <option value="asus">ASUS</option>
+                        <option value="apple">Apple</option>
+                        <option value="msi">MSI</option>
+                        <option value="razer">Razer</option>
+                        <option value="samsung">Samsung</option>
+                        <option value="toshiba">Toshiba</option>
+                        <option value="microsoft">Microsoft</option>
+                        <option value="huawei">Huawei</option>
+                        <option value="lg">LG </option>
+                        <option value="fujitsu">Fujitsu</option>
+                        <option value="panasonic">Panasonic</option>
+                        <option value="sony">Sony</option>
                     </select>
                 </div>
 
+                <div class="form-group">
+                    <label for="laptopName">اسم و موديل الجهاز</label>
+                    <input type="text" id="laptopName" name="laptopName" placeholder="مثال: EliteBook 850 G8">
+                </div>
 
             <!-- Start Code Check box => type Process -->
                         <div class="form-group" id="cpuBrandGroup">
@@ -50,14 +63,26 @@
                     <option value="Corei5">Core i5</option>
                     <option value="Corei7">Core i7</option>
                     <option value="Corei9">Core i9</option>
+                    <option value="Ultra-5">Core Ultra 5</option>
+                    <option value="Ultra-7">Core Ultra 7</option>
+                    <option value="Ultra-9">Core Ultra 9</option>
                 </select>
                 <select id="intelGenList" style="display: none; margin-top: 8px;">
                     <option value="">اختر الجيل</option>
+                    <option value="1th">1th Gen</option>
+                    <option value="2th">2th Gen</option>
+                    <option value="3th">3th Gen</option>
+                    <option value="4th">4th Gen</option>
+                    <option value="5th">5th Gen</option>
+                    <option value="6th">6th Gen</option>
+                    <option value="7th">7th Gen</option>
                     <option value="8th">8th Gen</option>
                     <option value="9th">9th Gen</option>
                     <option value="10th">10th Gen</option>
                     <option value="11th">11th Gen</option>
                     <option value="12th">12th Gen</option>
+                    <option value="13th">13th Gen</option>
+                    <option value="14th">14th Gen</option>
                 </select>
 
                 <!-- قوائم AMD -->
@@ -108,12 +133,21 @@
                     <label for="screen">حجم الشاشة</label>
                     <select id="screen" name="screen">
                         <option value="">اختر الحجم</option>
-                        <option value="13">13 inch</option>
-                        <option value="14">14 inch </option>
-                        <option value="14.5">14.5 inch</option>
-                        <option value="15">15 inch</option>
-                        <option value="15.5">15.5 inch</option>
-                        <option value="16">16 inch</option>
+                        <option value="11">11</option>
+                        <option value="11.5">11.5</option>
+                        <option value="12">12</option>
+                        <option value="12.5">12.5</option>
+                        <option value="13">13</option>
+                        <option value="13.3">13.3</option>
+                        <option value="13.5">13.5</option>
+                        <option value="14">14</option>
+                        <option value="14.2">14.2</option>
+                        <option value="14.5">14.5</option>
+                        <option value="15">15</option>
+                        <option value="15.5">15.5</option>
+                        <option value="16">16</option>
+                        <option value="16.2">16.2</option>
+                        <option value="17">17</option>
                     </select>
                 </div>
 
@@ -122,8 +156,12 @@
                     <select id="hz" name="hz">
                         <option value="">اختر التردد</option>
                         <option value="60">60 Hz</option>
+                        <option value="90">90 Hz</option>
                         <option value="120">120 Hz</option>
                         <option value="144">144 Hz</option>
+                        <option value="165">165 Hz</option>
+                        <option value="240">240 Hz</option>
+                        <option value="300">300 Hz</option>
                     </select>
                 </div>
 

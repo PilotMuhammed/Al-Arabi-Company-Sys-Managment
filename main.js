@@ -59,7 +59,20 @@ const images = {
     brand: {
         hp: './image/company/hp-logo.png',
         dell: './image/company/dell-logo.png',
-        lenovo: './image/company/lenovo-logo.png'
+        lenovo: './image/company/lenovo-logo.png',
+        acer: './image/company/acer.png',
+        asus: './image/company/asus.png',
+        apple: './image/company/apple.jpg',
+        msi: './image/company/msi.png',
+        razer: './image/company/razer.png',
+        samsung: './image/company/samsung.webp',
+        toshiba: './image/company/toshiba.jpg',
+        microsoft: './image/company/microsoft.png',
+        huawei: './image/company/huawei.jpg',
+        lg: './image/company/lg.jpg',
+        fujitsu: './image/company/fujitsu.png',
+        panasonic: './image/company/panasonic.png',
+        sony: './image/company/sony.png',
     },
     os: {
         win10: './image/win-10.png',
@@ -84,17 +97,115 @@ const images = {
         nvidia: './image/Screen-card/Nvidia.png',
         amd: './image/Screen-card/amd.png',
     },
-    touch: './image/touch-screen.png'
+    touch: './image/touch.png'
 };
 
 // Dictionary للصور حسب المعالج والجيل
 const cpuGenImages = {
-    "Corei5-10th": "./image/Intel/cori5-10th.png",
-    "Corei7-12th": "./image/Intel/cori7-12th.jpeg",
-    // 
+    // Core i3
+    "Corei3-1th": "./image/Intel/Corei3/corei3-1th.png",
+    "Corei3-2th": "./image/Intel/Corei3/corei3-2th.png",
+    "Corei3-3th": "./image/Intel/Corei3/corei3-3th.png",
+    "Corei3-4th": "./image/Intel/Corei3/corei3-4th.png",
+    "Corei3-5th": "./image/Intel/Corei3/corei3-5th.png",
+    "Corei3-6th": "./image/Intel/Corei3/corei3-6th.png",
+    "Corei3-7th": "./image/Intel/Corei3/corei3-7th.png",
+    "Corei3-8th": "./image/Intel/Corei3/corei3-8th.png",
+    "Corei3-9th": "./image/Intel/Corei3/corei3-9th.png",
+    "Corei3-10th": "./image/Intel/Corei3/corei3-10th.png",
+    "Corei3-11th": "./image/Intel/Corei3/corei3-11th.png",
+    "Corei3-12th": "./image/Intel/Corei3/corei3-12th.png",
+    "Corei3-13th": "./image/Intel/Corei3/corei3-13th.png",
+    "Corei3-14th": "./image/Intel/Corei3/corei3-14th.png",
+    // Core i5
+    "Corei5-1th": "./image/Intel/Corei5/corei5-1th.png",
+    "Corei5-2th": "./image/Intel/Corei5/corei5-2th.png",
+    "Corei5-3th": "./image/Intel/Corei5/corei5-3th.png",
+    "Corei5-4th": "./image/Intel/Corei5/corei5-4th.png",
+    "Corei5-5th": "./image/Intel/Corei5/corei5-5th.png",
+    "Corei5-6th": "./image/Intel/Corei5/corei5-6th.png",
+    "Corei5-7th": "./image/Intel/Corei5/corei5-7th.png",
+    "Corei5-8th": "./image/Intel/Corei5/corei5-8th.png",
+    "Corei5-9th": "./image/Intel/Corei5/corei5-9th.png",
+    "Corei5-10th": "./image/Intel/Corei5/corei5-10th.png",
+    "Corei5-11th": "./image/Intel/Corei5/corei5-11th.png",
+    "Corei5-12th": "./image/Intel/Corei5/corei5-12th.png",
+    "Corei5-13th": "./image/Intel/Corei5/corei5-13th.png",
+    "Corei5-14th": "./image/Intel/Corei5/corei5-14th.png",
+    // Core i7
+    "Corei7-1th": "./image/Intel/Corei7/corei7-1th.png",
+    "Corei7-2th": "./image/Intel/Corei7/corei7-2th.png",
+    "Corei7-3th": "./image/Intel/Corei7/corei7-3th.png",
+    "Corei7-4th": "./image/Intel/Corei7/corei7-4th.png",
+    "Corei7-5th": "./image/Intel/Corei7/corei7-5th.png",
+    "Corei7-6th": "./image/Intel/Corei7/corei7-6th.png",
+    "Corei7-7th": "./image/Intel/Corei7/corei7-7th.png",
+    "Corei7-8th": "./image/Intel/Corei7/corei7-8th.png",
+    "Corei7-9th": "./image/Intel/Corei7/corei7-9th.png",
+    "Corei7-10th": "./image/Intel/Corei7/corei7-10th.png",
+    "Corei7-11th": "./image/Intel/Corei7/corei7-11th.png",
+    "Corei7-12th": "./image/Intel/Corei7/corei7-12th.png",
+    "Corei7-13th": "./image/Intel/Corei7/corei7-13th.png",
+    "Corei7-14th": "./image/Intel/Corei7/corei7-14th.png",
+    // Core i9
+    "Corei9-9th": "./image/Intel/Corei9/corei9-9th.png",
+    "Corei9-10th": "./image/Intel/Corei9/corei9-10th.png",
+    "Corei9-11th": "./image/Intel/Corei9/corei9-11th.png",
+    "Corei9-12th": "./image/Intel/Corei9/corei9-12th.png",
+    "Corei9-13th": "./image/Intel/Corei9/corei9-13th.png",
+    "Corei9-14th": "./image/Intel/Corei9/corei9-14th.png",
+    // Ultra 5
+
+    "Ultra-5-1th": "./image/Intel/ultra5-1th.png",
+    "Ultra-5-2th": "./image/Intel/ultra5-2th.png",
+    "Ultra-5-3th": "./image/Intel/ultra5-3th.png",
+    "Ultra-5-4th": "./image/Intel/ultra5-4th.png",
+    "Ultra-5-5th": "./image/Intel/ultra5-5th.png",
+    "Ultra-5-6th": "./image/Intel/ultra5-6th.png",
+    "Ultra-5-7th": "./image/Intel/ultra5-7th.png",
+    "Ultra-5-8th": "./image/Intel/ultra5-8th.png",
+    "Ultra-5-9th": "./image/Intel/ultra5-9th.png",
+    "Ultra-5-10th": "./image/Intel/ultra5-10th.png",
+    "Ultra-5-11th": "./image/Intel/ultra5-11th.png",
+    "Ultra-5-12th": "./image/Intel/ultra5-12th.png",
+    "Ultra-5-13th": "./image/Intel/ultra5-13th.png",
+    "Ultra-5-14th": "./image/Intel/ultra5-14th.png",
+    // Ultra 7
+    "Ultra-7-1th": "./image/Intel/ultra7-1th.png",
+    "Ultra-7-2th": "./image/Intel/ultra7-2th.png",
+    "Ultra-7-3th": "./image/Intel/ultra7-3th.png",
+    "Ultra-7-4th": "./image/Intel/ultra7-4th.png",
+    "Ultra-7-5th": "./image/Intel/ultra7-5th.png",
+    "Ultra-7-6th": "./image/Intel/ultra7-6th.png",
+    "Ultra-7-7th": "./image/Intel/ultra7-7th.png",
+    "Ultra-7-8th": "./image/Intel/ultra7-8th.png",
+    "Ultra-7-9th": "./image/Intel/ultra7-9th.png",
+    "Ultra-7-10th": "./image/Intel/ultra7-10th.png",
+    "Ultra-7-11th": "./image/Intel/ultra7-11th.png",
+    "Ultra-7-12th": "./image/Intel/ultra7-12th.png",
+    "Ultra-7-13th": "./image/Intel/ultra7-13th.png",
+    "Ultra-7-14th": "./image/Intel/ultra7-14th.png",
+    // Ultra 9
+    "Ultra-9-1th": "./image/Intel/ultra9-1th.png",
+    "Ultra-9-2th": "./image/Intel/ultra9-2th.png",
+    "Ultra-9-3th": "./image/Intel/ultra9-3th.png",
+    "Ultra-9-4th": "./image/Intel/ultra9-4th.png",
+    "Ultra-9-5th": "./image/Intel/ultra9-5th.png",
+    "Ultra-9-6th": "./image/Intel/ultra9-6th.png",
+    "Ultra-9-7th": "./image/Intel/ultra9-7th.png",
+    "Ultra-9-8th": "./image/Intel/ultra9-8th.png",
+    "Ultra-9-9th": "./image/Intel/ultra9-9th.png",
+    "Ultra-9-10th": "./image/Intel/ultra9-10th.png",
+    "Ultra-9-11th": "./image/Intel/ultra9-11th.png",
+    "Ultra-9-12th": "./image/Intel/ultra9-12th.png",
+    "Ultra-9-13th": "./image/Intel/ultra9-13th.png",
+    "Ultra-9-14th": "./image/Intel/ultra9-14th.png",
+
+    // AMD
     "Ryzen3": "./image/AMD/ryzen-3.jpeg",
     "Ryzen5": "./image/AMD/ryzen-5.jpg",
     "Ryzen7": "./image/AMD/ryzen-7.jpg",
+    "Ryzen9": "./image/AMD/Ryzen-9.jpeg",
 };
 
 // نصوص الاختيارات (تُستخدم في البطاقة)
@@ -102,7 +213,20 @@ const labels = {
     brand: {
         hp: 'HP',
         dell: 'Dell',
-        lenovo: 'Lenovo'
+        lenovo: 'Lenovo',
+        acer: 'Acer',
+        asus: 'ASUS',
+        apple: 'Apple',
+        msi: 'MSI',
+        razer: 'Razer',
+        samsung: 'Samsung',
+        toshiba: 'Toshiba',
+        microsoft: 'Microsoft',
+        huawei: 'Huawei',
+        lg: 'LG ',
+        fujitsu: 'Fujitsu',
+        panasonic: 'Panasonic',
+        sony: 'Sony'
     },
     os: {
         win10: 'Win-10 ',
@@ -130,11 +254,20 @@ const labels = {
 };
 
 const intelGenLabels = {
+    "1th": "الجيل الاول ",
+    "2th": "الجيل الثاني ",
+    "3th": "الجيل الثالث ",
+    "4th": "الجيل الرابع ",
+    "5th": "الجيل الخامس ",
+    "6th": "الجيل السادس ",
+    "7th": "الجيل السابع ",
     "8th": "الجيل الثامن",
     "9th": "الجيل التاسع",
     "10th": "الجيل العاشر",
     "11th": "الجيل الحادي عشر",
-    "12th": "الجيل الثاني عشر"
+    "12th": "الجيل الثاني عشر",
+    "13th": "الجيل الثالث عشر",
+    "14th": "الجيل الرابع عشر",
 };
 
 // دالة تحديث البطاقة بناءً على القيم المختارة
@@ -164,7 +297,7 @@ function updateCard() {
 
 // إذا لم يتم اختيار شيء، اعرض رسالة فقط
     if (!brand && !selectedCpu && !os && !storage && !ram && !screen && !gpu && !price && !touch && !laptopName && !hz) {
-        specsCard.innerHTML = `<div style="text-align:center; color:#bbb; margin-top:5cm; font-size:1.4rem;">يرجى اختيار المواصفات   </div>`;
+        specsCard.innerHTML = `<div style="text-align:center; color:#D97D55; margin-top:5cm; margin-right:3cm; font-size:3.4rem;">يرجى اختيار المواصفات   </div>`;
         return;
     }
 
@@ -227,16 +360,6 @@ function updateCard() {
         ${cpuDetailsText}
     `;
 
-
-    // if (screen || hz) {
-    // detailsCol += `<div class="card-detail-row" style="display:flex;align-items:center;gap:16px;justify-content:center;">
-    //     <span>
-    //         Screen Size${screen ? ' ' + screen : ''}${(screen && hz) ? ' - ' : ''}${hz ? hz + ' GHz' : ''}
-    //     </span>
-    //     ${touch ? `<span style="display:flex;align-items:center;gap:6px;"><img src="${images.touch}" alt="شاشة لمس" style="width:40px;height:40px;"><span>لمس</span></span>` : ''}
-    // </div>`;
-    // }
-
     if (screen || hz) {
     detailsCol += `
         <div class="card-detail-row" style="display: flex; align-items: center; justify-content: space-between; gap: 12px;">
@@ -251,20 +374,42 @@ function updateCard() {
             ` : ''}
         </div>
     `;
-}
-
-
-
-
-
-    if (ram) {
-        detailsCol += `
-            <div class="card-detail-row">
-                <img src="${images.ram[ram] || ''}" alt="رام"> 
-                <span><b>   </b> ${labels.ram[ram]}</span>
-            </div>
-        `;
     }
+
+    // if (ram) {
+    //     detailsCol += `
+    //         <div class="card-detail-row">
+    //             <img src="${images.ram[ram] || ''}" alt="رام"> 
+    //             <span><b>   </b> ${labels.ram[ram]}</span>
+    //         </div>
+    //     `;
+    // }
+    if (ram) {
+    let ramLabel = labels.ram[ram];
+    let ddrLabel = "";
+
+    if (selectedCpuBrand === 'intel' && selectedGen) {
+        let genNum = parseInt(selectedGen);
+        if (!isNaN(genNum)) {
+            if (genNum >= 1 && genNum <= 5) {
+                ddrLabel = "-PC3 DDR3";
+            } else if (genNum >= 6 && genNum <= 12) {
+                ddrLabel = "-PC4 DDR4";
+            } else if (genNum === 13 || genNum === 14) {
+                ddrLabel = "-PC5 DDR5";
+            }
+        }
+    }
+
+    detailsCol += `
+        <div class="card-detail-row">
+            <img src="${images.ram[ram] || ''}" alt="رام"> 
+            <span><b></b> ${ramLabel}${ddrLabel}</span>
+        </div>
+    `;
+    }
+
+
     if (storage) {
         detailsCol += `
             <div class="card-detail-row">
@@ -281,15 +426,6 @@ function updateCard() {
             </div>
         `;
     }
-    
-    // if (os) {
-    // detailsCol += `
-    //     <div class="card-detail-row">
-    //         <img src="${images.os[os] || ''}" alt="النظام">
-    //         <span><b>  </b> ${labels.os[os]}</span>
-    //     </div>
-    // `;
-    // }
 
 
     // --- الخط الفاصل والسعر ---
@@ -301,14 +437,14 @@ function updateCard() {
             <span class="price-value">${price}</span>
         </div>
     `;
-}
+    }
 
     // --- وضع كل الأعمدة في البطاقة ---
     specsCard.innerHTML = `
     <div class="card-details-column">${detailsCol}</div>
         <div class="card-images-column">${imagesCol}</div>
     `;
-}
+    }
 
 // تحديث البطاقة عند كل تغيير اختيار
 form.addEventListener('input', updateCard);
