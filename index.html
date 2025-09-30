@@ -19,7 +19,7 @@
             <form id="laptopForm" autocomplete="off">
                 <div class="form-group">
                     <label for="laptopName">اسم و موديل الجهاز</label>
-                    <input type="text" id="laptopName" name="laptopName" placeholder="مثال: EliteBook 850 G8 - SN12345678">
+                    <input type="text" id="laptopName" name="laptopName" placeholder="مثال: EliteBook 850 G8">
                 </div>
 
                 <div class="form-group">
@@ -69,18 +69,11 @@
                     <option value="Ryzen9">Ryzen 9</option>
                 </select>
                 
-                <select id="amdGenList" style="display: none; margin-top: 8px;">
-                    <option value="">اختر الجيل</option>
-                    <option value="2000">2000 Series</option>
-                    <option value="3000">3000 Series</option>
-                    <option value="5000">5000 Series</option>
-                    <option value="7000">7000 Series</option>
-                </select>
+                <input type="text" id="amdGenText" style="display: none; margin-top: 8px;" placeholder="اكتب جيل المعالج أو اصدار خاص" autocomplete="off"/>
+
             </div>
 
 <!-- End Code Check box => type Process -->
-
-
                 <div class="form-group">
                     <label for="os">نوع النظام</label>
                     <select id="os" name="os">
@@ -138,8 +131,9 @@
                     <label for="gpu">نوع كرت الشاشة</label>
                     <select id="gpu" name="gpu">
                         <option value="">اختر الكرت</option>
-                        <option value="intel_irisXe"> intel_irisXe </option>
+                        <option value="intel_irisXe"> Intel </option>
                         <option value="nvidia">Nvidia</option>
+                        <option value="amd">AMD</option>
                     </select>
                 </div>
                 <div class="form-group">

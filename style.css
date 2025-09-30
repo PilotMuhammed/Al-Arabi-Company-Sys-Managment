@@ -105,10 +105,9 @@ header {
     min-width: 360px;
 }
 
-/* بطاقة المواصفات (قياس Letter للطباعة) */
 .specs-card {
-    width: 21cm;      /* Letter size = 21.59cm x 27.94cm */
-    height: 27.9cm;
+    width: 21cm;      /* A4 size = 21cm x 29.7cm */
+    height: 29.7cm;
     background: #fff;
     border-radius: 18px;
     box-shadow: 0 2px 18px #21305433;
@@ -118,49 +117,83 @@ header {
     flex-direction: row;
     gap: 1.8cm;
     overflow: hidden;
-    font-size: 1.15rem;
+    font-size: 1rem; 
+    border: 5px solid #3a4465;
 }
+/* Start Edit New Size -- Image & Text */
+.specs-card img {
+    width: 80px;  
+    height: auto;
+    max-height: 140px;
+    margin-bottom: 18px;
+}
+
 
 /* عمود الصور الجانبي */
 .card-images-column {
+    flex: 1;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    gap: 1.1cm;
-    min-width: 3.7cm;
-    margin-top: 0.7cm;
+    align-items: center;
+    gap: 0.1cm;
+    /* width: 1cm; */
+    /* min-width: 3.7cm; */
+    margin-top: 0.1cm;
 }
 .card-images-column img {
-    width: 2.6cm;
-    height: 2.6cm;
+    width: 3cm;
+    height: 3cm;
     object-fit: contain;
     background: #f0f4fa;
-    border-radius: 10px;
-    border: 1px solid #e0e6f0;
-    padding: 0.3cm;
-    box-shadow: 0 2px 8px #0001;
+    /* margin-left: -10px; */
+    /* border-radius: 10px; */
+    /* border: 1px solid #cf0452; */
+    /* padding: 0.3cm; */
+    /* box-shadow: 0 2px 8px #0001; */
 }
 
-/* عمود المواصفات النصية */
+
 .card-details-column {
+/*  The Text details From Left to Right   */
+    text-align: left;
+    direction: ltr;
+    /* Fro Size */
+    flex: 4;
+    font-size: 1rem;
+    font-weight: bold;
+
     display: flex;
     flex-direction: column;
-    gap: 0.38cm;
-    min-width: 9cm;
+    gap: 0.10cm;
+    /* min-width: 9cm; */
 }
 
+/* يضمن أن سطر الشاشة بدون لمس يبدأ من اليسار ككل السطور */
+.card-details-column .screen-row {
+    display: block;
+    text-align: left;
+    margin-bottom: 0;
+    direction: ltr;
+}
+
+/* سطر اللمس يكون دائمًا على أقصى اليمين */
+.card-details-column .touch-row {
+    margin-bottom: 0.6em;
+}
+
+
 .card-title {
-    font-size: 1.7rem;
+    font-size: 2rem;
     font-weight: bold;
     color: #c5222b;
-    margin-bottom: 0.25cm;
+    margin-bottom: 1cm;
 }
 .card-detail-row {
+    font-size: 1.5rem;
+    margin-bottom: 8px;
     display: flex;
     align-items: center;
-    gap: 0.55cm;
-    font-size: 1.15rem;
-    margin-bottom: 0.1cm;
+    gap: 6px;
 }
 .card-detail-row img {
     width: 1.2cm;
@@ -170,19 +203,42 @@ header {
 }
 
 .card-divider {
-    margin: 0.7cm 0 0.3cm 0;
-    border-top: 2.5px solid #2f3e65;
-    width: 80%;
+    margin: 22px 0;
+    border-top: 4px solid #cccccc;
+    width: 100%;
 }
 
 .card-price {
-    font-size: 2.1rem;
+    font-size: 2rem;
     font-weight: bold;
     color: #c5222b;
     letter-spacing: 2px;
-    margin-top: 0.25cm;
+    margin-top: 0.10cm;
     margin-bottom: 0.15cm;
-    text-align: right;
+    text-align: center;
+}
+.card-price-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0.1cm;
+    margin-bottom: 0.15cm;
+    width: 100%; /* أو 100% حسب التنسيق الذي تريده */
+}
+.price-label {
+    font-size: 1.4rem;
+    color: #444;
+    font-weight: bold;
+    /* جهة اليسار */
+}
+.price-value {
+    font-size: 2.3rem;
+    font-weight: bold;
+    color: #c5222b;
+    /* جهة اليمين */
+    direction: ltr;
+    letter-spacing: 2px;
 }
 
 /* زر "عرض خاص" */
@@ -200,8 +256,8 @@ header {
     transform: rotate(-12deg);
 }
 
-/* الطباعة - نخفي كل شيء إلا البطاقة */
-@media print {
+
+/* @media print {
     body * {
         visibility: hidden !important;
     }
@@ -218,5 +274,34 @@ header {
         height: 27.9cm;
         border-radius: 0;
         padding: 2.5cm 1.5cm 1.7cm 1.2cm;
+    }
+} */
+@media print {
+    body * {
+        visibility: hidden !important;
+    }
+    .specs-card, .specs-card * {
+        visibility: visible !important;
+    }
+    .specs-card {
+        position: absolute !important;
+        left: 0; top: 0;
+        right: 0; margin: auto;
+        width: 17cm !important;  
+        height: 13cm !important;
+        box-shadow: none !important;
+        border: 3px solid #2a3150 !important;
+        background: #fff !important;
+        z-index: 9999 !important;
+        padding: 0.3cm 0.4cm 0.3cm 0.4cm!important;
+        page-break-inside: avoid;
+        /* display: block !important; */
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: flex-start !important;
+        justify-content: space-between !important;
+    }
+    .card-details-column, .card-images-column {
+        display: block !important;
     }
 }
