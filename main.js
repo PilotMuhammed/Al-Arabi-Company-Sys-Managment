@@ -16,6 +16,8 @@ const amdDetailsGroup = document.getElementById('amdDetailsGroup');
 const nvidiaDetails = document.getElementById('nvidiaDetails');
 const amdDetails = document.getElementById('amdDetails');
 
+const ultraDetailsInput = document.getElementById('ultraDetailsInput');
+
 
 // منع اختيار أكثر من شركة
 intelCheckbox.addEventListener('change', function() {
@@ -25,7 +27,7 @@ intelCheckbox.addEventListener('change', function() {
         intelGenList.style.display = 'block';
         amdCpuList.style.display = 'none';
         amdGenList.style.display = 'none';
-         amdGenText.value = ""; 
+        amdGenText.value = ""; 
         amdGenText.style.display = 'none';
     } else {
         intelCpuList.value = "";
@@ -34,6 +36,8 @@ intelCheckbox.addEventListener('change', function() {
         intelGenList.style.display = 'none';
         amdGenText.style.display = 'none';
         amdGenText.value = "";
+        ultraDetailsInput.style.display = 'none';
+        ultraDetailsInput.value = '';
     }
     updateCard();
 });
@@ -53,10 +57,28 @@ amdCheckbox.addEventListener('change', function() {
     updateCard();
 });
 // عند تغيير اختيار أي قائمة
-intelCpuList.addEventListener('change', updateCard);
+intelCpuList.addEventListener('change', function() {
+    if (
+        intelCpuList.value === "Ultra-3" ||
+        intelCpuList.value === "Ultra-5" ||
+        intelCpuList.value === "Ultra-7" ||
+        intelCpuList.value === "Ultra-9"
+    ) {
+        ultraDetailsInput.style.display = 'block';       
+        intelGenList.style.display = 'none';            
+        intelGenList.value = "";                       
+    } else {
+        ultraDetailsInput.style.display = 'none';     
+        ultraDetailsInput.value = '';               
+        intelGenList.style.display = 'block';       
+    }
+    updateCard();
+});
+
 intelGenList.addEventListener('change', updateCard);
 amdCpuList.addEventListener('change', updateCard);
 amdGenText.addEventListener('input', updateCard);
+ultraDetailsInput.addEventListener('input', updateCard);
 
 
 // قائمة الصور الافتراضية (يمكنك تغيير الأسماء كما يناسبك)
@@ -160,65 +182,13 @@ const cpuGenImages = {
     "Corei9-13th": "./image/Intel/Corei9-13th.jpg",
     "Corei9-14th": "./image/Intel/", // NO
     // Ultra 3
-    "Ultra-3-1th": "./image/Intel/ultra3.jpg",
-    "Ultra-3-2th": "./image/Intel/ultra3.jpg",
-    "Ultra-3-3th": "./image/Intel/ultra3.jpg",
-    "Ultra-3-4th": "./image/Intel/ultra3.jpg",
-    "Ultra-3-5th": "./image/Intel/ultra3.jpg",
-    "Ultra-3-6th": "./image/Intel/ultra3.jpg",
-    "Ultra-3-7th": "./image/Intel/ultra3.jpg",
-    "Ultra-3-8th": "./image/Intel/ultra3.jpg",
-    "Ultra-3-9th": "./image/Intel/ultra3.jpg",
-    "Ultra-3-10th": "./image/Intel/ultra3.jpg",
-    "Ultra-3-11th": "./image/Intel/ultra3.jpg",
-    "Ultra-3-12th": "./image/Intel/ultra3.jpg",
-    "Ultra-3-13th": "./image/Intel/ultra3.jpg",
-    "Ultra-3-14th": "./image/Intel/ultra3.jpg",
+    "Ultra-3": "./image/Intel/ultra3.jpg",
     // Ultra 5
-    "Ultra-5-1th": "./image/Intel/ultra5.jpg",
-    "Ultra-5-2th": "./image/Intel/ultra5.jpg",
-    "Ultra-5-3th": "./image/Intel/ultra5.jpg",
-    "Ultra-5-4th": "./image/Intel/ultra5.jpg",
-    "Ultra-5-5th": "./image/Intel/ultra5.jpg",
-    "Ultra-5-6th": "./image/Intel/ultra5.jpg",
-    "Ultra-5-7th": "./image/Intel/ultra5.jpg",
-    "Ultra-5-8th": "./image/Intel/ultra5.jpg",
-    "Ultra-5-9th": "./image/Intel/ultra5.jpg",
-    "Ultra-5-10th": "./image/Intel/ultra5.jpg",
-    "Ultra-5-11th": "./image/Intel/ultra5.jpg",
-    "Ultra-5-12th": "./image/Intel/ultra5.jpg",
-    "Ultra-5-13th": "./image/Intel/ultra5.jpg",
-    "Ultra-5-14th": "./image/Intel/ultra5.jpg",
+    "Ultra-5": "./image/Intel/ultra5.jpg",
     // Ultra 7
-    "Ultra-7-1th": "./image/Intel/ultra7.jpg",
-    "Ultra-7-2th": "./image/Intel/ultra7.jpg",
-    "Ultra-7-3th": "./image/Intel/ultra7.jpg",
-    "Ultra-7-4th": "./image/Intel/ultra7.jpg",
-    "Ultra-7-5th": "./image/Intel/ultra7.jpg",
-    "Ultra-7-6th": "./image/Intel/ultra7.jpg",
-    "Ultra-7-7th": "./image/Intel/ultra7.jpg",
-    "Ultra-7-8th": "./image/Intel/ultra7.jpg",
-    "Ultra-7-9th": "./image/Intel/ultra7.jpg",
-    "Ultra-7-10th": "./image/Intel/ultra7.jpg",
-    "Ultra-7-11th": "./image/Intel/ultra7.jpg",
-    "Ultra-7-12th": "./image/Intel/ultra7.jpg",
-    "Ultra-7-13th": "./image/Intel/ultra7.jpg",
-    "Ultra-7-14th": "./image/Intel/ultra7.jpg",
+    "Ultra-7": "./image/Intel/ultra7.jpg",
     // Ultra 9
-    "Ultra-9-1th": "./image/Intel",
-    "Ultra-9-2th": "./image/Intel",
-    "Ultra-9-3th": "./image/Intel",
-    "Ultra-9-4th": "./image/Intel",
-    "Ultra-9-5th": "./image/Intel",
-    "Ultra-9-6th": "./image/Intel",
-    "Ultra-9-7th": "./image/Intel",
-    "Ultra-9-8th": "./image/Intel",
-    "Ultra-9-9th": "./image/Intel",
-    "Ultra-9-10th": "./image/Intel",
-    "Ultra-9-11th": "./image/Intel",
-    "Ultra-9-12th": "./image/Intel",
-    "Ultra-9-13th": "./image/Intel",
-    "Ultra-9-14th": "./image/Intel",
+    "Ultra-9": "./image/Intel",
 
     // AMD
     "Ryzen3": "./image/AMD/ryzen-3.jpeg",
@@ -337,8 +307,46 @@ function updateCard() {
         return;
     }
 
+    // let cpuGenImageHtml = '';
+    // if (selectedCpuBrand === 'intel' && selectedCpu && selectedGen) {
+    //     const cpuGenKey = selectedCpu + '-' + selectedGen;
+    //     const cpuGenImageSrc = cpuGenImages[cpuGenKey];
+    //     if (cpuGenImageSrc) {
+    //         cpuGenImageHtml = `<img src="${cpuGenImageSrc}" alt="${selectedCpu} ${selectedGen}">`;
+    //     } else {
+    //         cpuGenImageHtml = `<img src="./image/default-cpu-gen.png" alt="صورة غير متوفرة">`;
+    //     }
+    // } else if (selectedCpuBrand === 'amd' && selectedCpu) {
+    //     // الصورة حسب المعالج فقط، ابحث عنها بمفتاح المعالج فقط
+    //     const cpuImageSrc = cpuGenImages[selectedCpu];
+    //     if (cpuImageSrc) {
+    //         cpuGenImageHtml = `<img src="${cpuImageSrc}" alt="${selectedCpu}">`;
+    //     } else {
+    //         cpuGenImageHtml = `<img src="./image/default-cpu-gen.png" alt="صورة غير متوفرة">`;
+    //     }
+    // }
+
     let cpuGenImageHtml = '';
-    if (selectedCpuBrand === 'intel' && selectedCpu && selectedGen) {
+    if (
+        selectedCpuBrand === 'intel' &&
+        selectedCpu &&
+        (
+            selectedCpu === "Ultra-3" ||
+            selectedCpu === "Ultra-5" ||
+            selectedCpu === "Ultra-7" ||
+            selectedCpu === "Ultra-9"
+        )
+    ) {
+        // Ultra بدون جيل مختار (لأنك أخفيت القائمة)
+        const cpuGenImageSrc = cpuGenImages[selectedCpu];
+        if (cpuGenImageSrc) {
+            cpuGenImageHtml = `<img src="${cpuGenImageSrc}" alt="${selectedCpu}">`;
+        } else {
+            cpuGenImageHtml = `<img src="./image/default-cpu-gen.png" alt="صورة غير متوفرة">`;
+        }
+    }
+    else if (selectedCpuBrand === 'intel' && selectedCpu && selectedGen) {
+        // لباقي معالجات إنتل
         const cpuGenKey = selectedCpu + '-' + selectedGen;
         const cpuGenImageSrc = cpuGenImages[cpuGenKey];
         if (cpuGenImageSrc) {
@@ -346,8 +354,9 @@ function updateCard() {
         } else {
             cpuGenImageHtml = `<img src="./image/default-cpu-gen.png" alt="صورة غير متوفرة">`;
         }
-    } else if (selectedCpuBrand === 'amd' && selectedCpu) {
-        // الصورة حسب المعالج فقط، ابحث عنها بمفتاح المعالج فقط
+    }
+    else if (selectedCpuBrand === 'amd' && selectedCpu) {
+        // AMD حسب الكود الأصلي
         const cpuImageSrc = cpuGenImages[selectedCpu];
         if (cpuImageSrc) {
             cpuGenImageHtml = `<img src="${cpuImageSrc}" alt="${selectedCpu}">`;
@@ -355,6 +364,14 @@ function updateCard() {
             cpuGenImageHtml = `<img src="./image/default-cpu-gen.png" alt="صورة غير متوفرة">`;
         }
     }
+
+
+
+
+
+
+
+
 
 
     // --- عمود الصور الجانبي ---
@@ -370,7 +387,24 @@ function updateCard() {
     }
 
     let cpuDetailsText = '';
-    if (selectedCpuBrand === 'intel' && selectedCpu && selectedGen) {
+    if (
+        selectedCpuBrand === 'intel' &&
+        selectedCpu &&
+        (
+            selectedCpu === "Ultra-3" ||
+            selectedCpu === "Ultra-5" ||
+            selectedCpu === "Ultra-7" ||
+            selectedCpu === "Ultra-9"
+        )
+    ) {
+        // عند معالجات Ultra، لا نظهر الجيل بل فقط التفاصيل التي يكتبها المستخدم
+        const ultraDetails = ultraDetailsInput.value.trim();
+        cpuDetailsText = `
+            <div class="card-detail-row">
+                <span>${selectedCpu}${ultraDetails ? ' - ' + ultraDetails : ''}</span>
+            </div>
+        `;
+    } else if (selectedCpuBrand === 'intel' && selectedCpu && selectedGen) {
         const genLabel = intelGenLabels[selectedGen] ? ' ' + intelGenLabels[selectedGen] : '';
         cpuDetailsText = `
             <div class="card-detail-row">
@@ -384,6 +418,7 @@ function updateCard() {
             </div>
         `;
     }
+
 
 
 
