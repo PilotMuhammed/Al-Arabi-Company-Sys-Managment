@@ -198,12 +198,25 @@ input[type="checkbox"] {
     display: flex;
     align-items: center;
     gap: 6px;
+    /*  New  */
+    gap: 8px;  /* المسافة بين الصورة والنص */
+    margin-bottom: 7px;  /* مسافة أسفل كل صف */
+    min-height: 36px; /* لتثبيت ارتفاع السطر لو عندك صورة */
 }
 .card-detail-row img {
     width: 1.2cm;
     height: 1.2cm;
     object-fit: contain;
     margin-left: 0.15cm;
+    /* New */
+    max-height: 30px;  /* ارتفاع أقصى للأيقونات */
+    margin-left: 2px; /* لو فيه صورة قبل النص */
+}
+.card-detail-row span, .card-detail-row b {
+    display: inline-block;
+    line-height: 1.5;
+    font-size: 1.6rem;
+    vertical-align: middle;
 }
 
 .card-divider {
@@ -268,7 +281,7 @@ input[type="checkbox"] {
         visibility: hidden !important;
     }
     .card-detail-row {
-        line-height: 0.4;      
+        line-height: 1rem;      
         margin-bottom: 1px;     
         padding-bottom: 0;
         padding-top: 0;

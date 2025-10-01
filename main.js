@@ -120,9 +120,9 @@ const images = {
         nvme_1T: './image/Storage/nvme.png',
     },
     gpu: {
-        intel: './image/Screen-card/intel.png',
-        nvidia: './image/Screen-card/NVIDIA.jpeg',
-        amd: './image/Screen-card/AMD.png',
+        intel: './image/Screen-card/gpu.jpg',
+        nvidia: './image/Screen-card/gpu.jpg',
+        amd: './image/Screen-card/gpu.jpg',
     },
     touch: './image/touch.png'
 };
@@ -307,24 +307,6 @@ function updateCard() {
         return;
     }
 
-    // let cpuGenImageHtml = '';
-    // if (selectedCpuBrand === 'intel' && selectedCpu && selectedGen) {
-    //     const cpuGenKey = selectedCpu + '-' + selectedGen;
-    //     const cpuGenImageSrc = cpuGenImages[cpuGenKey];
-    //     if (cpuGenImageSrc) {
-    //         cpuGenImageHtml = `<img src="${cpuGenImageSrc}" alt="${selectedCpu} ${selectedGen}">`;
-    //     } else {
-    //         cpuGenImageHtml = `<img src="./image/default-cpu-gen.png" alt="صورة غير متوفرة">`;
-    //     }
-    // } else if (selectedCpuBrand === 'amd' && selectedCpu) {
-    //     // الصورة حسب المعالج فقط، ابحث عنها بمفتاح المعالج فقط
-    //     const cpuImageSrc = cpuGenImages[selectedCpu];
-    //     if (cpuImageSrc) {
-    //         cpuGenImageHtml = `<img src="${cpuImageSrc}" alt="${selectedCpu}">`;
-    //     } else {
-    //         cpuGenImageHtml = `<img src="./image/default-cpu-gen.png" alt="صورة غير متوفرة">`;
-    //     }
-    // }
 
     let cpuGenImageHtml = '';
     if (
@@ -364,13 +346,6 @@ function updateCard() {
             cpuGenImageHtml = `<img src="./image/default-cpu-gen.png" alt="صورة غير متوفرة">`;
         }
     }
-
-
-
-
-
-
-
 
 
 
@@ -427,6 +402,7 @@ function updateCard() {
         <div class="card-title">
             ${brand ? labels.brand[brand] : ''}${laptopName ? ' - ' + laptopName : ''}
         </div>
+        <div class="card-divider"></div> <!-- خط أفقي جديد -->
         ${cpuDetailsText}
     `;
 
