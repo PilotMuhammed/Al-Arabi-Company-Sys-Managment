@@ -224,11 +224,12 @@ input[type="checkbox"] {
 .card-price-row {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     margin-top: 0.1cm;
     margin-bottom: 0.15cm;
-    width: 100%; /* أو 100% حسب التنسيق الذي تريده */
+    width: 100%; 
+    gap: 20px;
 }
 .price-label {
     font-size: 1.4rem;
