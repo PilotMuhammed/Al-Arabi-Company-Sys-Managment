@@ -1,9 +1,7 @@
-// ربط القوائم والعناصر بالمتغيرات
 const form = document.getElementById('laptopForm');
 const specsCard = document.getElementById('specsCard');
 const resetBtn = document.getElementById('resetBtn');
 const printBtn = document.getElementById('printBtn');
-// Join Action for image processing 
 const intelCheckbox = document.getElementById('intelCheckbox');
 const amdCheckbox = document.getElementById('amdCheckbox');
 const intelCpuList = document.getElementById('intelCpuList');
@@ -11,6 +9,13 @@ const intelGenList = document.getElementById('intelGenList');
 const amdCpuList = document.getElementById('amdCpuList');
 const amdGenList = document.getElementById('amdGenList');
 const amdGenText = document.getElementById('amdGenText');
+// 
+const gpuSelect = document.getElementById('gpu');
+const nvidiaDetailsGroup = document.getElementById('nvidiaDetailsGroup');
+const amdDetailsGroup = document.getElementById('amdDetailsGroup');
+const nvidiaDetails = document.getElementById('nvidiaDetails');
+const amdDetails = document.getElementById('amdDetails');
+
 
 // منع اختيار أكثر من شركة
 intelCheckbox.addEventListener('change', function() {
@@ -93,9 +98,9 @@ const images = {
         nvme_1T: './image/Storage/nvme.png',
     },
     gpu: {
-        intel_irisXe: './image/Screen-card/irisXe.jpeg',
-        nvidia: './image/Screen-card/Nvidia.png',
-        amd: './image/Screen-card/amd.png',
+        intel: './image/Screen-card/intel.png',
+        nvidia: './image/Screen-card/NVIDIA.jpeg',
+        amd: './image/Screen-card/AMD.png',
     },
     touch: './image/touch.png'
 };
@@ -247,7 +252,7 @@ const labels = {
         nvme_1T: 'NVME-1T',
     },
     gpu: {
-        intel_irisXe: 'Intel iRISXe',
+        intel: 'Intel',
         nvidia: 'Nvidia',
         amd: 'AMD',
     }
@@ -269,6 +274,23 @@ const intelGenLabels = {
     "13th": "الجيل الثالث عشر",
     "14th": "الجيل الرابع عشر",
 };
+
+gpuSelect.addEventListener('change', function() {
+    if (gpuSelect.value === "nvidia") {
+        nvidiaDetailsGroup.style.display = "block";
+        amdDetailsGroup.style.display = "none";
+    } else if (gpuSelect.value === "amd") {
+        amdDetailsGroup.style.display = "block";
+        nvidiaDetailsGroup.style.display = "none";
+    } else {
+        nvidiaDetailsGroup.style.display = "none";
+        amdDetailsGroup.style.display = "none";
+    }
+    updateCard();
+});
+nvidiaDetails.addEventListener('input', updateCard);
+amdDetails.addEventListener('input', updateCard);
+
 
 // دالة تحديث البطاقة بناءً على القيم المختارة
 function updateCard() {
@@ -295,7 +317,7 @@ function updateCard() {
         selectedGen = amdGenText.value;
     }
 
-// إذا لم يتم اختيار شيء، اعرض رسالة فقط
+
     if (!brand && !selectedCpu && !os && !storage && !ram && !screen && !gpu && !price && !touch && !laptopName && !hz) {
         specsCard.innerHTML = `<div style="text-align:center; color:#D97D55; margin-top:5cm; margin-right:3cm; font-size:3.4rem;">يرجى اختيار المواصفات   </div>`;
         return;
@@ -319,7 +341,6 @@ function updateCard() {
             cpuGenImageHtml = `<img src="./image/default-cpu-gen.png" alt="صورة غير متوفرة">`;
         }
     }
-
 
 
     // --- عمود الصور الجانبي ---
@@ -364,7 +385,7 @@ function updateCard() {
     detailsCol += `
         <div class="card-detail-row" style="display: flex; align-items: center; justify-content: space-between; gap: 12px;">
             <span>
-                Screen Size${screen ? ' ' + screen : ''}${(screen && hz) ? ' - ' : ''}${hz ? hz + ' GHz' : ''}
+                Screen ${screen ? ' ' + screen : ''}${(screen && hz) ? ' - ' : ''}${hz ? hz + ' GHz' : ''} - <span style="color:#ED3F27;">FHD</span>
             </span>
             ${touch ? `
                 <span style="display: flex; align-items: center; gap: 6px;">
@@ -376,14 +397,7 @@ function updateCard() {
     `;
     }
 
-    // if (ram) {
-    //     detailsCol += `
-    //         <div class="card-detail-row">
-    //             <img src="${images.ram[ram] || ''}" alt="رام"> 
-    //             <span><b>   </b> ${labels.ram[ram]}</span>
-    //         </div>
-    //     `;
-    // }
+
     if (ram) {
     let ramLabel = labels.ram[ram];
     let ddrLabel = "";
@@ -418,14 +432,53 @@ function updateCard() {
             </div>
         `;
     }
+    
     if (gpu) {
-        detailsCol += `
-            <div class="card-detail-row">
-                <img src="${images.gpu[gpu] || ''}" alt="كرت الشاشة"> 
-                <span><b>   </b> ${labels.gpu[gpu]}</span>
-            </div>
-        `;
+    let gpuImg = '';
+    let gpuText = '';
+    // Intel
+    if (gpu === "intel") {
+        // نتحقق من الجيل ورام
+        if (selectedCpuBrand === 'intel' && selectedGen) {
+            let genNum = parseInt(selectedGen);
+            let ramNum = ram === "GB_16" ? 8 : ram === "GB_8" ? 4 : "";
+            if (genNum >= 1 && genNum <= 10) {
+                gpuText = `Intel HD Graphic${ramNum ? ' ' + ramNum + 'G' : ''}`;
+            } else if (genNum >= 11 && genNum <= 14) {
+                gpuText = `Intel Iris Graphic${ramNum ? ' ' + ramNum + 'G' : ''}`;
+            } else {
+                gpuText = `Intel Graphic`;
+            }
+        } else {
+            gpuText = `Intel Graphic`;
+        }
+        gpuImg = images.gpu.intel;
     }
+    // Nvidia
+    else if (gpu === "nvidia") {
+        gpuText = "Nvidia";
+        if (nvidiaDetails.value.trim()) {
+            gpuText += " " + nvidiaDetails.value.trim();
+        }
+        gpuImg = images.gpu.nvidia;
+    }
+    // AMD
+    else if (gpu === "amd") {
+        gpuText = "AMD";
+        if (amdDetails.value.trim()) {
+            gpuText += " " + amdDetails.value.trim();
+        }
+        gpuImg = images.gpu.amd;
+    }
+
+    detailsCol += `
+        <div class="card-detail-row">
+            <img src="${gpuImg}" alt="كرت الشاشة" style="width:38px;vertical-align:middle;"> 
+            <span><b></b> ${gpuText}</span>
+        </div>
+    `;
+    }
+
 
 
     // --- الخط الفاصل والسعر ---

@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>واجهة اختيار مواصفات الحاسبة</title>
+    <title>  نظام تحديد مواصفات الاجهزة </title>
+    <link rel="icon" href="./image/Al-Arabi-Logo.jpeg">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -49,7 +50,7 @@
             <!-- Start Code Check box => type Process -->
                         <div class="form-group" id="cpuBrandGroup">
                 <label>نوع المعالج</label>
-                <div style="display: flex; gap: 1.5rem;">
+                <div class="form-group checkbox-group">
                     <input type="checkbox" id="intelCheckbox" name="cpuBrand" value="intel">
                     <label for="intelCheckbox">Intel</label>
                     <input type="checkbox" id="amdCheckbox" name="cpuBrand" value="amd">
@@ -169,10 +170,17 @@
                     <label for="gpu">نوع كرت الشاشة</label>
                     <select id="gpu" name="gpu">
                         <option value="">اختر الكرت</option>
-                        <option value="intel_irisXe"> Intel </option>
+                        <option value="intel"> Intel </option>
                         <option value="nvidia">Nvidia</option>
                         <option value="amd">AMD</option>
                     </select>
+                <div id="nvidiaDetailsGroup" style="display:none; margin-top:8px;">
+                    <input type="text" id="nvidiaDetails" placeholder="ادخل تفاصيل كرت Nvidia ..."/>
+                </div>
+                <div id="amdDetailsGroup" style="display:none; margin-top:8px;">
+                    <input type="text" id="amdDetails" placeholder="ادخل تفاصيل كرت AMD ..."/>
+                </div>
+
                 </div>
                 <div class="form-group">
                     <label for="price">السعر</label>

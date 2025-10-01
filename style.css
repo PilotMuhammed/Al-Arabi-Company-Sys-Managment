@@ -28,6 +28,7 @@ header {
 
 /* ----- القسم الأيسر: الفورم ----- */
 .specs-form {
+    font-size: 1.3rem; 
     flex: 1;
     min-width: 280px;
     max-width: 350px;
@@ -63,11 +64,18 @@ header {
 .form-group input:focus {
     border-color: #6c97e1;
 }
+input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    accent-color: #D97D55;
+    vertical-align: middle;
+    cursor: pointer;
+}
 
 .checkbox-group {
-    flex-direction: row-reverse;
+    flex-direction: row;
     align-items: center;
-    gap: 0.6rem;
+    gap: 1rem;
     margin-top: 0.5rem;
 }
 
@@ -254,29 +262,19 @@ header {
 }
 
 
-/* @media print {
-    body * {
-        visibility: hidden !important;
-    }
-    .specs-card, .specs-card * {
-        visibility: visible !important;
-    }
-    .specs-card {
-        position: absolute !important;
-        left: 0;
-        top: 0;
-        margin: 0;
-        box-shadow: none;
-        width: 21cm;
-        height: 27.9cm;
-        border-radius: 0;
-        padding: 2.5cm 1.5cm 1.7cm 1.2cm;
-    }
-} */
+
 @media print {
     body * {
         visibility: hidden !important;
     }
+    .card-detail-row {
+        line-height: 0.4;      
+        margin-bottom: 1px;     
+        padding-bottom: 0;
+        padding-top: 0;
+    }
+
+    
     .specs-card, .specs-card * {
         visibility: visible !important;
     }
