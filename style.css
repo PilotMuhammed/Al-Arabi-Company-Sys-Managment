@@ -190,7 +190,7 @@ input[type="checkbox"] {
     font-size: 2rem;
     font-weight: bold;
     color: #c5222b;
-    margin-bottom: 1cm;
+    margin-bottom: 1px;
 }
 .card-detail-row {
     font-size: 1.5rem;
@@ -218,6 +218,19 @@ input[type="checkbox"] {
     font-size: 1.6rem;
     vertical-align: middle;
 }
+
+.gpu-side-img {
+    width: 70px !important;
+    height: 70px !important;
+    max-height: none !important;
+    max-width: none !important;
+    object-fit: contain !important;
+    margin-left: 0 !important;
+    margin-right: 4px !important;
+    display: inline-block;
+    vertical-align: middle;
+}
+
 
 .card-divider {
     margin: 22px 0;
