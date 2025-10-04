@@ -151,7 +151,7 @@ const cpuGenImages = {
     "Corei5-3th": "./image/Intel/Corei5-2&3th.jpg",
     "Corei5-4th": "./image/Intel/Corei5-4&5th.jpg",
     "Corei5-5th": "./image/Intel/Corei5-4&5th.jpg",
-    "Corei5-6th": "./image/Intel/", // No
+    "Corei5-6th": "./image/Intel/Corei5-6th.jpg",
     "Corei5-7th": "./image/Intel/Corei5-7th.jpg",
     "Corei5-8th": "./image/Intel/Corei5-8th.jpg",
     "Corei5-9th": "./image/Intel/Corei5-9th.jpg",
