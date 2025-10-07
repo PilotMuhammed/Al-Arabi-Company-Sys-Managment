@@ -419,7 +419,7 @@ function updateCard() {
     detailsCol += `
         <div class="card-detail-row" style="display: flex; align-items: center; justify-content: space-between; gap: 12px;">
             <span>
-                Screen ${screen ? ' ' + screen : ''}${(screen && hz) ? ' - ' : ''}${hz ? hz + ' GHz' : ''} - <span style="color:#ED3F27;">FHD</span>
+                Screen ${screen ? ' ' + screen : ''}${(screen && hz) ? ' - ' : ''}${hz ? hz + ' Hz' : ''} - <span style="color:#ED3F27;">FHD</span>
             </span>
             ${touch ? `
                 <span style="display: flex; align-items: center; gap: 6px;">
