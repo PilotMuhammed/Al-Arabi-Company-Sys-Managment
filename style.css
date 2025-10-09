@@ -2,17 +2,17 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Cairo', 'Tajawal', 'Noto Kufi Arabic', 'Segoe UI', Arial, sans-serif;
-    background: #f3f6fa;
+    background: linear-gradient(315deg, #B8C4A9 60%, #6FA4AF 100%);
+    
     direction: rtl;
 }
 header {
-    background: #2f3e65;
-    color: #fff;
-    padding: 1rem 0.5rem;
+    color: #232946; 
+    padding: 0.1rem 0.1rem;
     text-align: right;
     font-size: 0.8rem;
-    letter-spacing: 1px;
-    box-shadow: 0 2px 8px #0001;
+    letter-spacing: 2px;
+    box-shadow: 10px 8px 20px #0001;
     margin-bottom: 2rem;
     text-align: center;
 }
@@ -28,14 +28,16 @@ header {
 
 /* ----- القسم الأيسر: الفورم ----- */
 .specs-form {
+    background: linear-gradient(315deg, #CADCAE 60%, #e0d9c6 100%);
     font-size: 1.3rem; 
     flex: 1;
     min-width: 280px;
     max-width: 350px;
-    background: #fff;
-    border-radius: 18px;
-    box-shadow: 0 2px 20px #2f3e6544;
+    box-shadow: 0 2px 20px #23294633;
     padding: 2rem 1.2rem;
+    border: 1.5px solid #e7eaf0;
+    border-radius: 18px;
+    margin-bottom: 25px;
 }
 
 .form-group {
@@ -46,7 +48,7 @@ header {
 }
 .form-group label {
     font-weight: bold;
-    color: #263354;
+    color: #232946;
     margin-bottom: 0.2rem;
 }
 .form-group select, 
@@ -56,18 +58,19 @@ header {
     border-radius: 8px;
     border: 1px solid #b0c4d6;
     font-size: 1rem;
-    background: #f8fafd;
-    transition: border 0.2s;
+    background: #f4f4f6;
+    transition: border 0.2s, box-shadow 0.2s;
     outline: none;
 }
 .form-group select:focus,
 .form-group input:focus {
-    border-color: #6c97e1;
+    border-color: #2979ff;
+    box-shadow: 0 0 0 2px #2979ff33;
 }
 input[type="checkbox"] {
     width: 20px;
     height: 20px;
-    accent-color: #D97D55;
+    accent-color: #6FA4AF;
     vertical-align: middle;
     cursor: pointer;
 }
@@ -88,17 +91,18 @@ input[type="checkbox"] {
 .form-buttons button {
     flex: 1;
     padding: 0.7rem 0;
-    font-size: 1rem;
-    background: #2f3e65;
-    color: #fff;
+    font-size: 1.2rem;
+    font-weight: bold;
+    background: #6FA4AF;
+    color: black;
     border: none;
     border-radius: 10px;
     cursor: pointer;
     transition: background 0.2s, box-shadow 0.2s;
-    box-shadow: 0 1px 8px #2f3e6522;
+    box-shadow: 0 1px 8px #23294622;
 }
 .form-buttons button:hover {
-    background: #2049b2;
+    background: #38696e;
 }
 
 /* ----- القسم الأيمن: البطاقة ----- */
@@ -113,9 +117,10 @@ input[type="checkbox"] {
 .specs-card {
     width: 21cm;      /* A4 size = 21cm x 29.7cm */
     height: 29.7cm;
-    background: #fff;
+    background: linear-gradient(135deg, #e9ecf5 55%, #e2f1ff 100%);
+
     border-radius: 18px;
-    box-shadow: 0 2px 18px #21305433;
+    box-shadow: 0 2px 18px #23294618;
     padding: 2.5cm 1.5cm 1.7cm 1.2cm;
     position: relative;
     display: flex;
@@ -123,16 +128,24 @@ input[type="checkbox"] {
     gap: 1.8cm;
     overflow: hidden;
     font-size: 1rem; 
-    border: 5px solid #3a4465;
+    border: 5px solid #232946;
 }
 /* Start Edit New Size -- Image & Text */
 .specs-card img {
-    width: 80px;  
+    width: 70px;  
     height: auto;
     max-height: 140px;
     margin-bottom: 18px;
 }
 
+.specs-card .imgPrevent{
+    width:40px;
+    height:40px;
+    position:absolute;
+    top:10px;
+    right:10px;
+    z-index:99;
+}
 
 /* عمود الصور الجانبي */
 .card-images-column {
@@ -141,19 +154,12 @@ input[type="checkbox"] {
     flex-direction: column;
     align-items: center;
     gap: 0.1cm;
-    /* width: 1cm; */
-    /* min-width: 3.7cm; */
     margin-top: 0.1cm;
 }
 .card-images-column img {
     width: 3cm;
     height: 3cm;
     object-fit: contain;
-    /* margin-left: -10px; */
-    /* border-radius: 10px; */
-    /* border: 1px solid #cf0452; */
-    /* padding: 0.3cm; */
-    /* box-shadow: 0 2px 8px #0001; */
 }
 
 
@@ -161,15 +167,12 @@ input[type="checkbox"] {
 /*  The Text details From Left to Right   */
     text-align: left;
     direction: ltr;
-    /* Fro Size */
     flex: 4;
     font-size: 1rem;
     font-weight: bold;
-
     display: flex;
     flex-direction: column;
     gap: 0.10cm;
-    /* min-width: 9cm; */
 }
 
 /* يضمن أن سطر الشاشة بدون لمس يبدأ من اليسار ككل السطور */

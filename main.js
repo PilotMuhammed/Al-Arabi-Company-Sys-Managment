@@ -16,6 +16,7 @@ const nvidiaDetails = document.getElementById('nvidiaDetails');
 const amdDetails = document.getElementById('amdDetails');
 const ultraDetailsInput = document.getElementById('ultraDetailsInput');
 const cpuExtra = document.getElementById('cpuExtra');
+const sensitiveCheckbox = document.getElementById('sensitiveCheckbox');
 
 
 // منع اختيار أكثر من شركة
@@ -79,6 +80,7 @@ amdCpuList.addEventListener('change', updateCard);
 amdGenText.addEventListener('input', updateCard);
 ultraDetailsInput.addEventListener('input', updateCard);
 cpuExtra.addEventListener('input', updateCard);
+sensitiveCheckbox.addEventListener('change', updateCard);
 
 
 // قائمة الصور الافتراضية (يمكنك تغيير الأسماء كما يناسبك)
@@ -297,11 +299,11 @@ function updateCard() {
     const gpu = form.gpu.value;
     const price = form.price.value;
     const touch = form.touch.checked;
+    const isSensitive = sensitiveCheckbox.checked;
 // 
     const selectedCpuBrand = intelCheckbox.checked ? 'intel' : amdCheckbox.checked ? 'amd' : '';
     let selectedCpu = '';
     let selectedGen = '';
-    // New 
     const cpuExtraValue = cpuExtra.value.trim();
 
     if (selectedCpuBrand === 'intel') {
@@ -562,8 +564,9 @@ function updateCard() {
 
     // --- وضع كل الأعمدة في البطاقة ---
     specsCard.innerHTML = `
+    ${isSensitive ? `<img class="imgPrevent" src="./image/Prevent.png" alt="منع البيع">` : ''}
     <div class="card-details-column">${detailsCol}</div>
-        <div class="card-images-column">${imagesCol}</div>
+    <div class="card-images-column">${imagesCol}</div>
     `;
     }
 
