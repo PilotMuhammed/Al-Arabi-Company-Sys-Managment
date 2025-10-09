@@ -9,14 +9,13 @@ const intelGenList = document.getElementById('intelGenList');
 const amdCpuList = document.getElementById('amdCpuList');
 const amdGenList = document.getElementById('amdGenList');
 const amdGenText = document.getElementById('amdGenText');
-// 
 const gpuSelect = document.getElementById('gpu');
 const nvidiaDetailsGroup = document.getElementById('nvidiaDetailsGroup');
 const amdDetailsGroup = document.getElementById('amdDetailsGroup');
 const nvidiaDetails = document.getElementById('nvidiaDetails');
 const amdDetails = document.getElementById('amdDetails');
-
 const ultraDetailsInput = document.getElementById('ultraDetailsInput');
+const cpuExtra = document.getElementById('cpuExtra');
 
 
 // منع اختيار أكثر من شركة
@@ -79,6 +78,7 @@ intelGenList.addEventListener('change', updateCard);
 amdCpuList.addEventListener('change', updateCard);
 amdGenText.addEventListener('input', updateCard);
 ultraDetailsInput.addEventListener('input', updateCard);
+cpuExtra.addEventListener('input', updateCard);
 
 
 // قائمة الصور الافتراضية (يمكنك تغيير الأسماء كما يناسبك)
@@ -301,6 +301,9 @@ function updateCard() {
     const selectedCpuBrand = intelCheckbox.checked ? 'intel' : amdCheckbox.checked ? 'amd' : '';
     let selectedCpu = '';
     let selectedGen = '';
+    // New 
+    const cpuExtraValue = cpuExtra.value.trim();
+
     if (selectedCpuBrand === 'intel') {
         selectedCpu = intelCpuList.value;
         selectedGen = intelGenList.value;
@@ -384,20 +387,20 @@ function updateCard() {
         const ultraDetails = ultraDetailsInput.value.trim();
         cpuDetailsText = `
             <div class="card-detail-row">
-                <span>${selectedCpu}${ultraDetails ? ' - ' + ultraDetails : ''}</span>
+                <span>${selectedCpu}${ultraDetails ? ' - ' + ultraDetails : ''}${cpuExtraValue ? ' ' + cpuExtraValue : ''}</span>
             </div>
         `;
     } else if (selectedCpuBrand === 'intel' && selectedCpu && selectedGen) {
         const genLabel = intelGenLabels[selectedGen] ? ' ' + intelGenLabels[selectedGen] : '';
         cpuDetailsText = `
             <div class="card-detail-row">
-                <span>${selectedCpu} - ${selectedGen}${genLabel}</span>
+                <span>${selectedCpu} - ${selectedGen}${cpuExtraValue ? ' ' + cpuExtraValue : ''}${genLabel}</span>
             </div>
         `;
     } else if (selectedCpuBrand === 'amd' && selectedCpu) {
         cpuDetailsText = `
             <div class="card-detail-row">
-                <span>${selectedCpu}${selectedGen ? ' - ' + selectedGen : ''}</span>
+                <span>${selectedCpu}${selectedGen ? ' - ' + selectedGen : ''}${cpuExtraValue ? ' ' + cpuExtraValue : ''}</span>
             </div>
         `;
     }
