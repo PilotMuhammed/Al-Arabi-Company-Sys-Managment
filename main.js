@@ -106,6 +106,7 @@ const images = {
     os: {
         win10: './image/win-10.jpg',
         win11: './image/win-11.jpg',
+        FreeDos: './image/FreeDOS.png',
     },
     ram: {
         GB_8: './image/Storage/RAM-8GB.png',
@@ -229,6 +230,7 @@ const labels = {
     os: {
         win10: 'Win-10 ',
         win11: ' Win-11',
+        FreeDos: 'FreeDos',
     },
     ram: {
         GB_8: 'Ram 8 GB',
