@@ -109,7 +109,9 @@ const images = {
         FreeDos: './image/FreeDOS.png',
     },
     ram: {
+        GB_4: './image/Storage/RAM-4GB.png', 
         GB_8: './image/Storage/RAM-8GB.png',
+        GB_12: './image/Storage/RAM-12GB.png', 
         GB_16: './image/Storage/RAM-16GB.jpg',
         GB_32: './image/Storage/RAM-32GB.jpg',
     },
@@ -233,7 +235,9 @@ const labels = {
         FreeDos: 'FreeDos',
     },
     ram: {
+        GB_4: 'Ram 4 GB',
         GB_8: 'Ram 8 GB',
+        GB_12: 'Ram 12 GB',
         GB_16: 'Ram 16 GB',
         GB_32: 'Ram 32 GB',
     },
