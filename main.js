@@ -17,6 +17,7 @@ const amdDetails = document.getElementById("amdDetails");
 const ultraDetailsInput = document.getElementById("ultraDetailsInput");
 const cpuExtra = document.getElementById("cpuExtra");
 const sensitiveCheckbox = document.getElementById("sensitiveCheckbox");
+const discountCheckbox = document.getElementById("discountCheckbox");
 
 // منع اختيار أكثر من شركة
 intelCheckbox.addEventListener("change", function () {
@@ -80,6 +81,7 @@ amdGenText.addEventListener("input", updateCard);
 ultraDetailsInput.addEventListener("input", updateCard);
 cpuExtra.addEventListener("input", updateCard);
 sensitiveCheckbox.addEventListener("change", updateCard);
+discountCheckbox.addEventListener("change", updateCard);
 
 // قائمة الصور الافتراضية (يمكنك تغيير الأسماء كما يناسبك)
 const images = {
@@ -304,14 +306,55 @@ function updateCard() {
     const touch = form.touch.checked;
     const isSensitive = sensitiveCheckbox.checked;
 
+
+    // --- بداية كود السعر المعدل ---
+    const isDiscount = discountCheckbox.checked; // هل تم اختيار الخصم؟
     const enteredPrice = parseInt(form.price.value);
-    let formattedPrice = "";
+    
+    let priceHtml = ""; // متغير لتخزين HTML السعر النهائي
+
     if (!isNaN(enteredPrice) && enteredPrice > 0) {
-        // 1. حساب السعر الفعلي بضرب القيمة في 1000
-        const actualPrice = enteredPrice * 1000;
-        // 2. تنسيق الرقم لإضافة فاصلة الألوف (مثال: 350000 يصبح 350,000)
-        formattedPrice = actualPrice.toLocaleString("en-US");
+        // 1. حساب السعر الأصلي (ضرب في 1000)
+        const originalPriceVal = enteredPrice * 1000;
+        const originalPriceFormatted = originalPriceVal.toLocaleString("en-US");
+
+        if (isDiscount) {
+            // حالة وجود خصم 20%
+            // السعر الجديد = السعر الأصلي * 0.8
+            const discountedVal = originalPriceVal * 0.8;
+            // إزالة الكسور العشرية إن وجدت وتنسيق الرقم
+            const discountedFormatted = Math.floor(discountedVal).toLocaleString("en-US");
+
+            // بناء HTML للخصم: السعر الجديد في الأعلى، والقديم تحته مشطوب
+            priceHtml = `
+                <div class="card-divider"></div>
+                <div class="discount-container">
+                    <div class="new-price-row">
+                        <span class="price-label-small">بعد الخصم:</span>
+                        <span class="price-value">${discountedFormatted}</span>
+                    </div>
+                    <div class="old-price-row">
+                        <span>السعر السابق: ${originalPriceFormatted}</span>
+                    </div>
+                </div>
+            `;
+        } else {
+            // الحالة الطبيعية (بدون خصم)
+            priceHtml = `
+                <div class="card-divider"></div>
+                <div class="card-price-row">
+                    <span class="price-label"> السعر ثابت </span>
+                    <span class="price-value">${originalPriceFormatted}</span>
+                </div>
+            `;
+        }
+    } else {
+        // إذا لم يتم إدخال سعر، نضع الخط الفاصل فقط للحفاظ على الشكل
+        priceHtml = `<div class="card-divider"></div>`; 
     }
+    // --- نهاية كود السعر المعدل ---
+
+
 
     //
     const selectedCpuBrand = intelCheckbox.checked
@@ -569,26 +612,38 @@ function updateCard() {
     `;
     }
 
-    // --- الخط الفاصل والسعر ---
-    detailsCol += `<div class="card-divider"></div>`;
-    if (formattedPrice) {
-        detailsCol += `
-        <div class="card-price-row">
-            <span class="price-label"> السعر ثابت </span>
-            <span class="price-value">${formattedPrice}</span>
-        </div>
-    `;
-    }
+    // إضافة كود السعر الذي جهزناه في الأعلى
+    detailsCol += priceHtml;
 
     // --- وضع كل الأعمدة في البطاقة ---
+    // specsCard.innerHTML = `
+    // ${isSensitive
+    //         ? `<img class="imgPrevent" src="./image/Prevent.png" alt="منع البيع">`
+    //         : ""
+    //     }
+    // <div class="card-details-column">${detailsCol}</div>
+    // <div class="card-images-column">${imagesCol}</div>
+    // `;
+
+    // --- (الجزء الأخير من الدالة) وضع كل الأعمدة في البطاقة ---
+
+    // 1. تجهيز متغير لصورة الخصم
+    let discountBadgeHtml = "";
+    if (isDiscount) {
+        // ضع هنا مسار الصورة التي جهزتها
+        discountBadgeHtml = `<img class="discount-badge" src="./image/20%-dis.png" alt="خصم 20%">`;
+    }
+
+    // 2. حقن الكود داخل البطاقة
     specsCard.innerHTML = `
     ${isSensitive
             ? `<img class="imgPrevent" src="./image/Prevent.png" alt="منع البيع">`
             : ""
         }
-    <div class="card-details-column">${detailsCol}</div>
+    
+    ${discountBadgeHtml} <div class="card-details-column">${detailsCol}</div>
     <div class="card-images-column">${imagesCol}</div>
-    `;
+    `; // نهاية دالة updateCard
 }
 
 // تحديث البطاقة عند كل تغيير اختيار

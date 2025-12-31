@@ -290,6 +290,53 @@ input[type="checkbox"] {
     transform: rotate(-12deg);
 }
 
+/* --- تنسيقات السعر الجديد والخصم --- */
+
+/* حاوية السعر عند تفعيل الخصم */
+.discount-container {
+    display: flex;
+    flex-direction: column; /* ترتيب العناصر فوق بعض */
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: -3px;
+}
+
+/* السطر الخاص بالسعر الجديد (بعد الخصم) */
+.new-price-row {
+    font-size: 2.4rem; /* حجم كبير */
+    font-weight: bold;
+    color: #c5222b; /* اللون الأحمر المميز */
+    letter-spacing: 2px;
+}
+
+/* السطر الخاص بالسعر القديم (المشطوب) */
+.old-price-row {
+    font-size: 1.4rem; /* أصغر قليلاً */
+    color: #555; /* لون رمادي */
+    text-decoration: line-through; /* خط في المنتصف (شطب) */
+    opacity: 0.8;
+    margin-top: -2px; /* تقريب المسافة بين السطرين */
+}
+
+.price-label-small {
+    font-size: 1.2rem;
+    color: #232946;
+    margin-left: 10px;
+}
+
+/* تنسيق صورة شعار الخصم */
+.discount-badge {
+    position: absolute;
+    top: 1cm;      /* المسافة من الأعلى - عدلها لتحريك الصورة عمودياً */
+    right: 2cm;    /* المسافة من اليمين - عدلها لتحريك الصورة أفقياً */
+    width: 5.5cm;  /* حجم الصورة */
+    height: auto;
+    z-index: 100;  /* لضمان ظهورها فوق النصوص */
+    transform: rotate(-15deg); /* تدوير بسيط لجمالية التصميم (اختياري) */
+    opacity: 0.9;
+}
+
 
 
 @media print {
@@ -303,7 +350,6 @@ input[type="checkbox"] {
         padding-top: 0;
     }
 
-    
     .specs-card, .specs-card * {
         visibility: visible !important;
     }
@@ -311,15 +357,20 @@ input[type="checkbox"] {
         position: absolute !important;
         left: 0; top: 0;
         right: 0; margin: auto;
-        width: 17cm !important;  
-        height: 13cm !important;
+        
+        /* --- التعديل الأول: زيادة العرض قليلاً والارتفاع --- */
+        width: 18cm !important;  /* قمنا بزيادة العرض قليلاً لراحة النص */
+        height: 14.5cm !important; /* قمنا بزيادة الارتفاع من 13 إلى 14.5 لاستيعاب السعر */
+        
         box-shadow: none !important;
         border: 3px solid #2a3150 !important;
         background: #fff !important;
         z-index: 9999 !important;
-        padding: 0.3cm 0.4cm 0.3cm 0.4cm!important;
+        
+        /* --- التعديل الثاني: تقليل الحواشي الداخلية لتوفير مساحة --- */
+        padding: 0.2cm 0.4cm 0.1cm 0.4cm !important; /* تقليل المسافة من الأعلى والأسفل */
+        
         page-break-inside: avoid;
-        /* display: block !important; */
         display: flex !important;
         flex-direction: row !important;
         align-items: flex-start !important;
@@ -327,6 +378,10 @@ input[type="checkbox"] {
     }
     .card-details-column, .card-images-column {
         display: block !important;
+    }
+
+    .new-price-row {
+        font-size: 2rem !important; /* تصغير السعر قليلاً في الطباعة */
     }
 }
 
