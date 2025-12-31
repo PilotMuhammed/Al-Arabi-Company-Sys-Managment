@@ -630,8 +630,7 @@ function updateCard() {
     // 1. تجهيز متغير لصورة الخصم
     let discountBadgeHtml = "";
     if (isDiscount) {
-        // ضع هنا مسار الصورة التي جهزتها
-        discountBadgeHtml = `<img class="discount-badge" src="./image/20%-dis.png" alt="خصم 20%">`;
+        discountBadgeHtml = `<img class="discount-badge" src="./image/dis-20per.png" alt="خصم 20%">`;
     }
 
     // 2. حقن الكود داخل البطاقة
