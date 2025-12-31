@@ -295,9 +295,10 @@ input[type="checkbox"] {
 /* حاوية السعر عند تفعيل الخصم */
 .discount-container {
     display: flex;
-    flex-direction: column; /* ترتيب العناصر فوق بعض */
+    flex-direction: row; /* ترتيب العناصر فوق بعض */
     align-items: center;
     justify-content: center;
+    gap: 20px;
     width: 100%;
     margin-top: -3px;
 }
@@ -308,6 +309,7 @@ input[type="checkbox"] {
     font-weight: bold;
     color: #c5222b; /* اللون الأحمر المميز */
     letter-spacing: 2px;
+    order: 2;
 }
 
 /* السطر الخاص بالسعر القديم (المشطوب) */
@@ -316,6 +318,7 @@ input[type="checkbox"] {
     color: #555; /* لون رمادي */
     text-decoration: line-through; /* خط في المنتصف (شطب) */
     opacity: 0.8;
+    margin-top: 0;
     margin-top: -2px; /* تقريب المسافة بين السطرين */
 }
 

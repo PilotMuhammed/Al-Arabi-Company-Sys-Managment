@@ -330,7 +330,7 @@ function updateCard() {
                 <div class="card-divider"></div>
                 <div class="discount-container">
                     <div class="new-price-row">
-                        <span class="price-label-small">بعد الخصم:</span>
+                        <span class="price-label-small">السعر بعد الخصم  :</span>
                         <span class="price-value">${discountedFormatted}</span>
                     </div>
                     <div class="old-price-row">
