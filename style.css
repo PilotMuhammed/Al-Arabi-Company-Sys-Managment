@@ -267,7 +267,7 @@ input[type="checkbox"] {
     /* جهة اليسار */
 }
 .price-value {
-    font-size: 2.3rem;
+    font-size: 1rem;
     font-weight: bold;
     color: #c5222b;
     /* جهة اليمين */
@@ -305,7 +305,7 @@ input[type="checkbox"] {
 
 /* السطر الخاص بالسعر الجديد (بعد الخصم) */
 .new-price-row {
-    font-size: 2.4rem; /* حجم كبير */
+    font-size: 1rem; /* حجم كبير */
     font-weight: bold;
     color: #c5222b; /* اللون الأحمر المميز */
     letter-spacing: 2px;
@@ -314,16 +314,16 @@ input[type="checkbox"] {
 
 /* السطر الخاص بالسعر القديم (المشطوب) */
 .old-price-row {
-    font-size: 1.4rem; /* أصغر قليلاً */
+    font-size: 1rem; /* أصغر قليلاً */
     color: #555; /* لون رمادي */
     text-decoration: line-through; /* خط في المنتصف (شطب) */
     opacity: 0.8;
     margin-top: 0;
-    margin-top: -2px; /* تقريب المسافة بين السطرين */
+     /* تقريب المسافة بين السطرين */
 }
 
 .price-label-small {
-    font-size: 1.2rem;
+    font-size: 1rem;
     color: #232946;
     margin-left: 10px;
 }
@@ -380,10 +380,6 @@ input[type="checkbox"] {
     .card-details-column, .card-images-column {
         display: block !important;
     }
-    .new-price-row {
-        font-size: 2rem !important; /* تصغير السعر قليلاً في الطباعة */
-    }
-
 
     /* التأكد من أن حاوية الأسعار تتسع لهم بجانب بعض */
     .discount-container {
