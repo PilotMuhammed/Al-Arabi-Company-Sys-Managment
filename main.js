@@ -306,11 +306,10 @@ function updateCard() {
     const touch = form.touch.checked;
     const isSensitive = sensitiveCheckbox.checked;
 
-
     // --- بداية كود السعر المعدل ---
     const isDiscount = discountCheckbox.checked; // هل تم اختيار الخصم؟
     const enteredPrice = parseInt(form.price.value);
-    
+
     let priceHtml = ""; // متغير لتخزين HTML السعر النهائي
 
     if (!isNaN(enteredPrice) && enteredPrice > 0) {
@@ -319,27 +318,39 @@ function updateCard() {
         const originalPriceFormatted = originalPriceVal.toLocaleString("en-US");
 
         if (isDiscount) {
-            // حالة وجود خصم 20%
-            // السعر الجديد = السعر الأصلي * 0.8
-            const discountedVal = originalPriceVal * 0.8;
-            // إزالة الكسور العشرية إن وجدت وتنسيق الرقم
-            const discountedFormatted = Math.floor(discountedVal).toLocaleString("en-US");
+            // 1. المعادلة الرياضية الجديدة:
+            // السعر النهائي (الأحمر) = نفس السعر الذي تم إدخاله في الحقل
+            const finalPriceVal = originalPriceVal;
 
-            // بناء HTML للخصم: السعر الجديد في الأعلى، والقديم تحته مشطوب
+            // السعر السابق (المشطوب) = السعر المدخل + نسبة 20%
+            // (ضرب الرقم في 1.2 يعطيك القيمة الأصلية مضافاً إليها 20%)
+            const fakeOldPriceVal = originalPriceVal * 1.2;
+
+            // تنسيق الأرقام (لإضافة الفواصل مثل 100,000)
+            const finalPriceFormatted =
+                Math.floor(finalPriceVal).toLocaleString("en-US");
+            const oldPriceFormatted =
+                Math.floor(fakeOldPriceVal).toLocaleString("en-US");
+
+            // 2. كود HTML (يحافظ على التصميم مع تعديل طريقة عرض النص بجانب الرقم)
             priceHtml = `
                 <div class="card-divider"></div>
                 <div class="discount-container">
-                    <div class="new-price-row">
-                        <span class="price-label-small">السعر بعد الخصم  :</span>
-                        <span class="price-value">${discountedFormatted}</span>
+                    
+                    <div class="new-price-row" style="display: flex; align-items: center; gap: 8px;">
+                         <span class="price-value">${finalPriceFormatted}</span>
+                         <span class="price-label-small"> : السعر بعد الخصم</span>
                     </div>
-                    <div class="old-price-row">
-                        <span>السعر السابق: ${originalPriceFormatted}</span>
+
+                    <div class="old-price-row" style="display: flex; align-items: center; gap: 5px;">
+                        <span>${oldPriceFormatted}</span>
+                        <span> : السعر السابق</span>
                     </div>
+                    
                 </div>
             `;
         } else {
-            // الحالة الطبيعية (بدون خصم)
+            // (هذا الجزء يبقى كما هو للحالة بدون خصم)
             priceHtml = `
                 <div class="card-divider"></div>
                 <div class="card-price-row">
@@ -350,11 +361,9 @@ function updateCard() {
         }
     } else {
         // إذا لم يتم إدخال سعر، نضع الخط الفاصل فقط للحفاظ على الشكل
-        priceHtml = `<div class="card-divider"></div>`; 
+        priceHtml = `<div class="card-divider"></div>`;
     }
     // --- نهاية كود السعر المعدل ---
-
-
 
     //
     const selectedCpuBrand = intelCheckbox.checked
@@ -614,18 +623,6 @@ function updateCard() {
 
     // إضافة كود السعر الذي جهزناه في الأعلى
     detailsCol += priceHtml;
-
-    // --- وضع كل الأعمدة في البطاقة ---
-    // specsCard.innerHTML = `
-    // ${isSensitive
-    //         ? `<img class="imgPrevent" src="./image/Prevent.png" alt="منع البيع">`
-    //         : ""
-    //     }
-    // <div class="card-details-column">${detailsCol}</div>
-    // <div class="card-images-column">${imagesCol}</div>
-    // `;
-
-    // --- (الجزء الأخير من الدالة) وضع كل الأعمدة في البطاقة ---
 
     // 1. تجهيز متغير لصورة الخصم
     let discountBadgeHtml = "";

@@ -360,18 +360,16 @@ input[type="checkbox"] {
         position: absolute !important;
         left: 0; top: 0;
         right: 0; margin: auto;
-        
-        /* --- التعديل الأول: زيادة العرض قليلاً والارتفاع --- */
-        width: 18cm !important;  /* قمنا بزيادة العرض قليلاً لراحة النص */
-        height: 14.5cm !important; /* قمنا بزيادة الارتفاع من 13 إلى 14.5 لاستيعاب السعر */
+
+        width: 16cm !important;  
+        height: 14cm !important; 
         
         box-shadow: none !important;
         border: 3px solid #2a3150 !important;
         background: #fff !important;
         z-index: 9999 !important;
         
-        /* --- التعديل الثاني: تقليل الحواشي الداخلية لتوفير مساحة --- */
-        padding: 0.2cm 0.4cm 0.1cm 0.4cm !important; /* تقليل المسافة من الأعلى والأسفل */
+        padding: 0.2cm 0.4cm 0.1cm 0.4cm !important; 
         
         page-break-inside: avoid;
         display: flex !important;
@@ -382,9 +380,15 @@ input[type="checkbox"] {
     .card-details-column, .card-images-column {
         display: block !important;
     }
-
     .new-price-row {
         font-size: 2rem !important; /* تصغير السعر قليلاً في الطباعة */
+    }
+
+
+    /* التأكد من أن حاوية الأسعار تتسع لهم بجانب بعض */
+    .discount-container {
+        flex-wrap: nowrap !important;
+        gap: 10px !important;
     }
 }
 
