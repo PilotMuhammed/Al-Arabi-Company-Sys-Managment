@@ -318,15 +318,9 @@ function updateCard() {
         const originalPriceFormatted = originalPriceVal.toLocaleString("en-US");
 
         if (isDiscount) {
-            // 1. المعادلة الرياضية الجديدة:
-            // السعر النهائي (الأحمر) = نفس السعر الذي تم إدخاله في الحقل
             const finalPriceVal = originalPriceVal;
-
-            // السعر السابق (المشطوب) = السعر المدخل + نسبة 20%
-            // (ضرب الرقم في 1.2 يعطيك القيمة الأصلية مضافاً إليها 20%)
             const fakeOldPriceVal = originalPriceVal * 1.2;
-
-            // تنسيق الأرقام (لإضافة الفواصل مثل 100,000)
+            
             const finalPriceFormatted =
                 Math.floor(finalPriceVal).toLocaleString("en-US");
             const oldPriceFormatted =
@@ -335,7 +329,7 @@ function updateCard() {
             // 2. كود HTML (يحافظ على التصميم مع تعديل طريقة عرض النص بجانب الرقم)
             priceHtml = `
                 <div class="card-divider"></div>
-                <div class="discount-container">
+                <div class="discount-container" style="display: flex; flex-direction: column; align-items: center; gap: 3px;">
                     
                     <div class="new-price-row" style="display: flex; align-items: center;">
                          <span class="price-value">${finalPriceFormatted}</span>

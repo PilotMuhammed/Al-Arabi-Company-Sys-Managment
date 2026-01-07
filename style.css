@@ -17,7 +17,6 @@ header {
     text-align: center;
 }
 
-/* تقسيم الصفحة قسمين */
 .container {
     display: flex;
     justify-content: space-between;
@@ -175,7 +174,6 @@ input[type="checkbox"] {
     gap: 0.10cm;
 }
 
-/* يضمن أن سطر الشاشة بدون لمس يبدأ من اليسار ككل السطور */
 .card-details-column .screen-row {
     display: block;
     text-align: left;
@@ -183,7 +181,6 @@ input[type="checkbox"] {
     direction: ltr;
 }
 
-/* سطر اللمس يكون دائمًا على أقصى اليمين */
 .card-details-column .touch-row {
     margin-bottom: 0.6em;
 }
@@ -200,11 +197,9 @@ input[type="checkbox"] {
     margin-bottom: 8px;
     display: flex;
     align-items: center;
-    gap: 6px;
-    /*  New  */
-    gap: 8px;  /* المسافة بين الصورة والنص */
-    margin-bottom: 7px;  /* مسافة أسفل كل صف */
-    min-height: 36px; /* لتثبيت ارتفاع السطر لو عندك صورة */
+    gap: 8px; 
+    margin-bottom: 7px;  
+    min-height: 36px; 
 }
 .card-detail-row img {
     width: 1.2cm;
@@ -212,8 +207,8 @@ input[type="checkbox"] {
     object-fit: contain;
     margin-left: 0.15cm;
     /* New */
-    max-height: 30px;  /* ارتفاع أقصى للأيقونات */
-    margin-left: 2px; /* لو فيه صورة قبل النص */
+    max-height: 30px; 
+    margin-left: 2px; 
 }
 .card-detail-row span, .card-detail-row b {
     display: inline-block;
@@ -261,13 +256,13 @@ input[type="checkbox"] {
     gap: 20px;
 }
 .price-label {
-    font-size: 1.4rem;
+    font-size: 1.9rem;
     color: #444;
     font-weight: bold;
     /* جهة اليسار */
 }
 .price-value {
-    font-size: 1rem;
+    font-size: 1.9rem;
     font-weight: bold;
     color: #c5222b;
     /* جهة اليمين */
@@ -290,36 +285,54 @@ input[type="checkbox"] {
     transform: rotate(-12deg);
 }
 
-/* --- تنسيقات السعر الجديد والخصم --- */
-
-/* حاوية السعر عند تفعيل الخصم */
 .discount-container {
     display: flex;
-    flex-direction: row; /* ترتيب العناصر فوق بعض */
+    flex-direction: column; 
     align-items: center;
     justify-content: center;
-    gap: 20px;
+    gap: 2px;
     width: 100%;
-    margin-top: -3px;
+    margin-top: 5px;
 }
 
-/* السطر الخاص بالسعر الجديد (بعد الخصم) */
 .new-price-row {
-    font-size: 1rem; /* حجم كبير */
+    /* font-size: 1.9rem; 
     font-weight: bold;
-    color: #c5222b; /* اللون الأحمر المميز */
+    color: #c5222b; 
     letter-spacing: 2px;
-    order: 2;
+    order: 2; */
+
+    display: flex;
+    align-items: center;
+    /* gap: 8px; */
 }
 
-/* السطر الخاص بالسعر القديم (المشطوب) */
+.new-price-row .price-value {
+    font-size: 1.8rem; /* تحكم بحجم الرقم الأحمر هنا */
+    font-weight: bold;
+    color: #c5222b;
+    letter-spacing: 2px;
+}
+.new-price-row .price-label-small {
+    font-size: 1.2rem; /* تحكم بحجم النص ": السعر بعد الخصم" هنا */
+    color: #232946;
+}
+
 .old-price-row {
-    font-size: 1rem; /* أصغر قليلاً */
-    color: #555; /* لون رمادي */
-    text-decoration: line-through; /* خط في المنتصف (شطب) */
+    font-size: 1.8rem; 
+    color: #555; 
+    text-decoration: line-through; 
     opacity: 0.8;
     margin-top: 0;
-     /* تقريب المسافة بين السطرين */
+
+    display: flex;
+    align-items: center;
+    /* gap: 5px; */
+    
+    font-size: 1.5rem; /* تحكم بالحجم الكلي للسطر الرمادي هنا */
+    color: #777;
+    text-decoration: line-through;
+    opacity: 0.8;
 }
 
 .price-label-small {
@@ -328,15 +341,15 @@ input[type="checkbox"] {
     margin-left: 10px;
 }
 
-/* تنسيق صورة شعار الخصم */
+
 .discount-badge {
     position: absolute;
-    top: 1cm;      /* المسافة من الأعلى - عدلها لتحريك الصورة عمودياً */
-    right: 2cm;    /* المسافة من اليمين - عدلها لتحريك الصورة أفقياً */
-    width: 5.5cm;  /* حجم الصورة */
+    top: 1cm;      
+    right: 2cm;   
+    width: 5.5cm;  
     height: auto;
-    z-index: 100;  /* لضمان ظهورها فوق النصوص */
-    transform: rotate(-15deg); /* تدوير بسيط لجمالية التصميم (اختياري) */
+    z-index: 100;  
+    transform: rotate(-15deg);
     opacity: 0.9;
 }
 
